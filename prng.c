@@ -4,7 +4,7 @@ static prng_state s_prng_state = {
 
 void prng_seed_r(prng_state* rng, u64 initstate, u64 initseg) {
     rng->state = 0U;
-    rng->inc = (initseq << 1u) | 1u;
+    rng->inc = (initseg << 1u) | 1u;
     prng_rand_r(rng);
     rng->state += initstate;
     prng_rand_r(rng);
